@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Yandex.Maps</title>
+    <style>
+        html, body, #YMapsID {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>	
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!-- en-US ru-RU-->
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=en-US" type="text/javascript"></script>
+    <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        ymaps.ready(init);
+	
+function init () {
+            myMap = new ymaps.Map("YMapsID", {center: [55.745,37.594585], zoom: 11,
+					behaviors: ['default', 'scrollZoom']
+					//controls: ['searchControl', 'typeSelector']
+                });
+
+	    myMap.controls
+                .add('zoomControl')
+                .add('mapTools')
+		.add('typeSelector');
+
+
+	var rectangle = new ymaps.Rectangle([[55.517470,37.290977],[55.95711439750372, 38.0048169995256]], {}, {
+     fillImageHref: "data.png", outline: false, fillOpacity: 0.8
+     });
+
+   // Добавляем прямоугольник на карту.
+    myMap.geoObjects.add(rectangle);
+
+
+				}
+	</script>
+</head>
+
+<body>
+<div id="YMapsID"></div>
+<div id='mes' style='visibility:hidden"></div>
+</body>
+</html>

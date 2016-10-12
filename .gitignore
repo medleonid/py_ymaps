@@ -1,0 +1,5 @@
+*.pyc
+res/
+image.dat
+.DS_Store
+*.csv
